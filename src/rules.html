@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蜜豆内衣 首发第一弹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <script type="text/javascript" src="./js/jquery-1.7.1.min.js?v1.3_20151124"></script>
+    <script type="text/javascript" src="./js/adaptive.js?v1.0_20151126"></script>
+    <script type="text/javascript" src="./js/main.js?v1.0_20151126"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/WeChat.js"></script>
+    <script type="text/javascript">
+        checkAccess();
+
+        window['adaptive'].desinWidth = 640;
+        window['adaptive'].baseFont = 14;
+        window['adaptive'].init();
+    </script>
+    <link rel="stylesheet" href="css/animate.css">
+    <style type="text/css">
+        body{
+            background-image: url("images/弹出BG.png");
+
+            animation: bounceInDown 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceInDown 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceInDown 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceInDown 1s 0s alternate;
+        }
+        #rules{
+            position: relative;
+            width: 100%;
+            height: auto;
+            left: auto;
+            margin-top: 30px;
+        }
+        #tips{
+            position: relative;
+            left: 0;
+            top: -60px;
+            padding-left: 450px;
+            border: none;
+            outline: none;
+            outline-color: transparent;
+            border-color: transparent;
+            background: transparent;
+        }
+        #content{
+            position: relative;
+            text-align: center;
+            display: none;
+            left: 0;
+            top: -65px;
+            padding-left: 350px;
+        }
+
+    </style>
+</head>
+<body onclick="history.back()">
+    <div id="div">
+        <img id="rules" src="images/活动规则_02.png" width="608" height="722">
+        <a id="tips" href=# onclick= "OUT()"><img src="images/tanchuc_11.png" width="57" height="40"></a>
+
+    </div>
+    <div>
+        <img id="content" src="images/tips弹出_05.png" width="218" height="145">
+    </div>
+    <div><img id="div_audio" onclick="musicPlay()" src="images/play.png" width="47" height="47"></div>
+
+    <script>
+
+        $(document).ready(function() {
+            main();
+        });
+
+        function OUT(){
+            var content = document.getElementById("content");
+            content.style.display = "block";
+            content.style.top = "-65px";
+            content.style.right = "100px";
+        }
+
+    </script>
+</body>
+</html>

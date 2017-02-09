@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蜜豆内衣 首发第一弹</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <!-- wx no cache start -- >
+    <!--
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    -->
+    <!-- wx no cache end -- >
+    <!--
+    <script type="text/javascript" src="http://192.168.1.152/js/jquery-1.7.1.min.js?v1.3_20151124"></script>
+    <script type="text/javascript" src="http://192.168.1.152/js/main.js?v1.0_20151124"></script>
+    -->
+    <script type="text/javascript" src="./js/jquery-1.7.1.min.js?v1.3_20151124"></script>
+    <script type="text/javascript" src="./js/main.js?v1.0_20151126"></script>
+    <script type="text/javascript" src="./js/adaptive.js?v1.0_20151126"></script>
+    <script type="text/javascript">
+        checkAccess();
+
+        window['adaptive'].desinWidth = 640;
+        window['adaptive'].baseFont = 14;
+        window['adaptive'].init();
+    </script>
+    <link rel="stylesheet" href="css/animate.css">
+    <style type="text/css">
+        .main-info{
+            height: 0.88rem;
+            padding-bottom: 0.24rem;
+        }
+        .fund-info{
+            position: relative;
+            font-weight: normal;
+            padding: 0.2rem 0;
+            padding-right: 1.7rem;
+            padding-left: 0.23rem;
+            font-size: 0.32rem;
+            line-height: 1;
+        }
+        body{
+            margin: 0;
+        }
+        /*蜜豆内衣*/
+        #div_01{
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        /*基本款...*/
+        #div_05{
+            animation: flipInY 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: flipInY 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: flipInY 1s 0s alternate;
+            /* Opera: */
+            -o-animation: flipInY 1s 0s alternate;
+
+            position: relative;
+            left: 0;
+            /*margin-top: 40px;*/
+            top: auto;
+            text-align: center;
+        }
+        /*小裤*/
+        #div_09{
+            position: relative;
+            left: auto;
+            margin-top: -10px;
+            top: auto;
+            text-align: center;
+        }
+        /*猜猜多少钱,输入框图片,价格范围*/
+        #div_12,#div_16,#div_21{
+            position: relative;
+            margin-top: 10px;
+            left: auto;
+            top: auto;
+            text-align: center;
+        }
+        /*价格输入框*/
+        #price{
+            position: relative;
+            background-image: url("images/猜价格A_16.png");
+            background-repeat: no-repeat;
+            overflow: hidden;
+            text-align: center;
+            border-color: transparent;
+            border: none;
+            outline: none;
+            width: 220px;
+            height: 84px;
+            font-size: 0.3rem;
+        }
+        /*确认价格,收货地址*/
+        #img1,#img2{
+            position: relative;
+            left: auto;
+            top: auto;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            white-space: nowrap;
+
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+        }
+        /*小伙伴分割线*/
+        #div_24{
+            position: relative;
+            left: 0;
+            top: auto;
+            margin-top: 30px;
+            text-align: center;
+        }
+        /*3个小伙伴的头像,价格*/
+        #div_25{
+            position: relative;
+            left: 0;
+            top: auto;
+            margin-top: 5px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        #item1_img,#item2_img,#item3_img{
+            position: relative;
+            left: auto;
+            top: 2px;
+            text-align: center;
+            border-radius: 50%;
+            border: 5px solid #fff;
+        }
+        /*弹窗里的控件*/
+        #close2,#close,#coming,#name,#add,#tel,#buttonShare,#buttonAgain{
+            position: absolute;
+            /*visibility: hidden;*/
+            overflow: hidden;
+            display: none;
+            padding: 5px;
+            background-color: transparent;
+            border-color: transparent;
+            border: none;
+            outline: none;
+            /*font-family: priceFont;*/
+            font-size: 0.18rem;
+        }
+        /*2个弹出浮层*/
+        #sh,#ss{
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+        }
+        div.item {
+            vertical-align: top;
+            display: inline-block;
+            text-align: center;
+            width: 176px;
+            height: 100px;
+            white-space:nowrap;
+            /*font-family:priceFont;*/
+            font-size:18px;
+        }
+        #div_audio{
+            /*width: 28px;*/
+            /*height: 28px;*/
+            right: 14px;
+            top: 14px;
+            /*opacity: 0.7;*/
+            position: absolute;
+            display: block;
+            z-index: 1000;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0)
+        }
+        @font-face {
+            font-family: 'priceFont';
+            /*src: url('./font/font.price.ttf') format('truetype'); */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        #black,#content,#tips{
+            position: absolute;
+            display: none;
+            max-height: 100%;
+
+            animation: bounceInDown 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceInDown 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceInDown 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceInDown 1s 0s alternate;
+        }
+        #detail{
+            position: absolute;
+            display: none;
+            max-height: 100%;
+
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+        }
+
+    </style>
+    <script>
+//        显示 提示界面(呼叫小伙伴,我来当团长)
+        function showPopup(w,h, isLeader){
+            var callFriendId = document.getElementById("callFriend");
+            if (isLeader){
+                callFriendId.src = "images/内裤猜价格B-团长页面.png";
+            }else {
+                callFriendId.src = "images/内裤猜价格B-团员页面.png";
+                var popAgain = document.getElementById("buttonAgain");
+                popAgain.style.top = "100px";
+                popAgain.style.left = "160px";
+                popAgain.style.display = "block";
+            }
+            var popUP = document.getElementById("sh");
+            popUP.style.top = "240px";
+            popUP.style.left = "0px";
+            popUP.style.width = w + "px";
+            popUP.style.height = h + "px";
+
+            popUP.style.display = "block";
+
+            var popClose = document.getElementById("close");
+            popClose.style.top = "86px";
+            popClose.style.right = "160px";
+            popClose.style.display = "block";
+
+            var popShare = document.getElementById("buttonShare");
+            popShare.style.top = "0";
+            popShare.style.right = "0";
+            popShare.style.display = "block";
+
+
+            var arr = ["div_05","div_09","div_12","div_21","div_16","div_24","item1_img","item2_img","item3_img","item1_price","item2_price","item3_price","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+
+                if (pop_21)
+                {
+                    pop_21.style.opacity = 0.1;
+                }
+            }
+        }
+
+//        隐藏 提示界面
+        function hidePopup(){
+            var popUp = document.getElementById("sh");
+            popUp.style.display = "none";
+            var buttonShare = document.getElementById("buttonShare");
+            buttonShare.style.display = "none";
+            var arr = ["div_05","div_09","div_12","div_21","div_16","div_24","item1_img","item2_img","item3_img","item1_price","item2_price","item3_price","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+                if (pop_21)
+                {
+                    pop_21.style.opacity = 1;
+                }
+            }
+        }
+
+        // 显示 rules 浮层
+        function showRules(){
+    var myWidth = window.innerWidth;
+    var myHeight = window.innerHeight;
+
+    var black = document.getElementById("black");
+    black.style.display = "block";
+    black.style.top = "0px";
+    black.style.left = "0px";
+
+    var content = document.getElementById("content");
+    content.style.display = "block";
+    contentTop = (myHeight * 6/100) + "px";
+//            alert(myHeight * 6/100);
+//            contentLeft = (myWidth - 608)/2 + "px";
+    content.style.top = contentTop;
+//            content.style.left = contentLeft;
+    content.style.left = "0px";
+
+    var tips = document.getElementById("tips");
+    tips.style.display = "block";
+    tips.style.top = "73%%";
+    tips.style.left = "69%";
+}
+
+        // 隐藏rules 浮层
+        function hiddenRules(){
+            var black = document.getElementById("black");
+            black.style.display = "none";
+
+            var content = document.getElementById("content");
+            content.style.display = "none";
+
+            var tips = document.getElementById("tips");
+            tips.style.display = "none";
+
+            var detail = document.getElementById("detail");
+            detail.style.display = "none";
+
+        }
+
+        function OUT(){
+            var detail= document.getElementById("detail");
+            if (detail.style.display == "block"){
+                detail.style.display = "none";
+            }else{
+                detail.style.display = "block";
+                detail.style.top = "76%";
+                detail.style.left = "53%";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div_01"><a id="home_icon" href="home.html"><img src="images/猜价格A_01.png" width="121" height="70"></a></div>
+    <div id="div_05"><img src="images/猜价格A_05.png" width="298" height="280"></div>
+    <div id="div_09"><img src="images/猜价格B(1).png" width="333" height="169"></div>
+    <div id="div_12"><img src="images/猜价格A_12.png" width="137" height="83"></div>
+    <div id="div_16">
+        <center>
+            <form method="get" onsubmit="return false;">
+                <!--<img id="img" src="images/猜价格A_16.png" width="223" height="86">-->
+                <input id="price" type="text" onkeyup="return inputPriceOnKeyUp(event);">
+            </form>
+        </center>
+    </div>
+
+    <div id="div_21"><img src="images/猜价格A_21.png" width="232" height="21"></div>
+
+    <div style="white-space: nowrap">
+        <center>
+        <!-- 确认价格-->
+        <!--<a href="javascript:showPopup()"><img id="img1" src="images/猜价格A_20.png" width="201" height="67"></a>-->
+        <a href="javaScript:guessPriceBtnOnClick()"><img id="img1" src="images/猜价格A_20.png" width="201" height="67"></a>
+        <!-- 我的收货地址-->
+        <a href=# onclick="showRules()"><img id="img2" src="images/首页切图_05.png" width="261" height="67"></a>
+
+        </center>
+    </div>
+    <div id="div_24"><img src="images/猜价格A_24.png" width="640" height="18"></div>
+    <div id="div_25">
+        <div class="item">
+            <img id="item1_img" src="images/无头像.png" width="48" height="48">
+            <label id="item1_price" style="display:block"></label>
+            </div>
+        <div class="item">
+            <img id="item2_img" src="images/头像占位1.png" width="48" height="48">
+            <label id="item2_price" style="display:block"></label>
+            </div>
+        <div class="item">
+            <img id="item3_img" src="images/头像占位2.png" width="48" height="48">
+            <label id="item3_price" style="display:block"></label>
+        </div>
+    </div>
+
+    <!--点击 确认价格 弹出浮层div-->
+    <div id="sh">
+        <img id="callFriend" src="images/内裤猜价格B-团员页面.png" width="640" height="624">
+        <div id="close" style="display: inline-block">
+            <a href=# onclick="hidePopup()"><img src="images/close.png" width="49" height="66"></a>
+        </div>
+        <div id="buttonAgain">
+            <a href="home.html"><img src="images/再猜一次_button.png" width="255" height="95"></a>
+        </div>
+    </div>
+
+    <!-- 分享按钮-->
+    <div id="buttonShare"><img src="images/分享按钮_02.gif" width="182" height="265"></div>
+
+    <!--点击 收货地址 弹出浮层div-->
+    <div id="ss">
+        <img id="address" src="images/address.png" width="640" height="624">
+        <div>
+            <a href="javaScript:commitExpressBtnOnClick()"><img id="coming" src="images/未点击.png" width="118" height="46"></a>
+            <input id="name" type="text">
+            <input id="tel" type="text">
+            <input id="add" type="text">
+        </div>
+        <div id="close2" style="display: inline-block">
+            <a href=# onclick="hidePopupp()"><img src="images/close.png" width="49" height="66"></a>
+        </div>
+    </div>
+    <div><img id="div_audio" onclick="musicPlay()" src="images/play.png" width="47" height="47"></div>
+
+    <img id="black" src="images/弹出BG.png" width="100%" height="100%">
+    <img id="content" onclick="hiddenRules()" src="images/活动规则_02.png" width="95%" height="72%">
+    <img id="tips" onclick="OUT()" src="images/tanchuc_11.png" width="9%" height="4%">
+    <img id="detail" src="images/tips弹出_05.png" width="34%" height="14%">
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        main(true);
+    });
+
+    var audio = document.createElement("audio");
+    audio.src = "media/Lily Allen.mp3";
+    audio.loop = true;
+    //        audio.load();
+    audio.addEventListener("canplaythrough",function(){
+        audio.play();
+    },false);
+
+    function musicPlay(){
+
+        var div_audio = document.getElementById("div_audio");
+        if(audio.paused){
+//                alert("播放停止");
+            audio.play();
+            div_audio.src = "images/play.png";
+
+        }else{
+//                alert("正在播放");
+            audio.pause();
+            div_audio.src = "images/stop.png";
+        }
+    }
+
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/WeChat.js"></script>
+
+</html>

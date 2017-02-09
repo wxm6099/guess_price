@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蜜豆内衣 首发第一弹</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+    <script type="text/javascript" src="./js/jquery-1.7.1.min.js?v1.3_20151124"></script>
+    <script type="text/javascript" src="./js/main.js?v1.0_20151126"></script>
+    <script type="text/javascript" src="./js/adaptive.js?v1.0_20151126"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/WeChat.js"></script>
+    <script type="text/javascript">
+        checkAccess();
+
+        window['adaptive'].desinWidth = 640;
+        window['adaptive'].baseFont = 14;
+        window['adaptive'].init();
+    </script>
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/midou.css">
+    <style type="text/css">
+        .main-info{
+            height: 0.88rem;
+            padding-bottom: 0.24rem;
+        }
+        .fund-info{
+            position: relative;
+            font-weight: normal;
+            padding: 0.2rem 0;
+            padding-right: 1.7rem;
+            padding-left: 0.23rem;
+            font-size: 0.32rem;
+            line-height: 1;
+        }
+        body{
+            margin: 0;
+        }
+        /*蜜豆内衣*/
+        #div0{
+            position: relative;
+            left: auto;
+            top: auto;
+        }
+        /*猜价格 标题*/
+        #img1{
+            width: 100%;
+            height: auto;
+            margin-top: 47px;
+            animation: wobble 0.5s 0s alternate;
+            /* Firefox: */
+            -moz-animation: wobble 0.5s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: wobble 0.5s 0s alternate;
+            /* Opera: */
+            -o-animation: wobble 0.5s 0s alternate;
+        }
+        /*分割线*/
+        #img2{
+            width: 100%;
+            height: auto;
+            margin-top: -50px;
+        }
+        /*神一般...*/
+        #img3{
+            width: 100%;
+            height: auto;
+            margin-top: -170px;
+            animation: hhh 0.5s 0s alternate;
+            /* Firefox: */
+            -moz-animation: hhh 0.5s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: hhh 0.5s 0s alternate;
+            /* Opera: */
+            -o-animation: hhh 0.5s 0s alternate;
+        }
+        #div_pants{
+            position: relative;
+            top: 250px;
+
+            /*width: 100%;*/
+            /*height: auto;*/
+        }
+        #left{
+            position: relative;
+            padding-left: 25px;
+            /*margin-left: 55px;*/
+            /*visibility: hidden;*/
+
+            animation: bounceIn 1.26s 0.5s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1.26s 0.5s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1.26s 0.5s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1.26s 0.5s alternate;
+
+        }
+        #middle{
+            position: relative;
+            padding-left: 40px;
+            padding-right: 53px;
+            top: -40px;
+            visibility: hidden;
+
+            animation: bounceIn 1.26s 2.8s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1.26s 2.8s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1.26s 2.8s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1.26s 2.8s alternate;
+
+        }
+        #right{
+            position: relative;
+            /*padding-right: 56px;*/
+            visibility: hidden;
+
+            animation: bounceIn 2.3s 4.8s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 2.3s 4.8s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 2.3s 4.8s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 2.3s 4.8s alternate;
+
+        }
+        #opening{
+            /*display: none;*/
+            /*position: absolute;*/
+            /*text-align: center;*/
+            /*width: 100%;*/
+            /*top: -580px;*/
+        }
+        #gif1,#gif2,#gif3{
+            display: block;
+            position: absolute;
+            /*outline: none; */
+            /*overflow: hidden;*/
+            /*background-color: transparent;*/
+        }
+        #gif4{
+            display: block;
+            position: absolute;
+            /*outline: none; */
+            /*overflow: hidden;*/
+            /*background-color: transparent;*/
+        }
+        /*开始猜价  活动规则*/
+        #div3{
+            position: relative;
+            top: 290px;
+
+        }
+        /*来公众号  中奖名单*/
+        #div4{
+            position: relative;
+            top: 317px;
+        }
+        /*开始猜价 按钮*/
+        #price{
+            /*动画:  动画名称  持续时间  速度快慢变化  开始时间  播放次数  下一周期逆向播放*/
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+
+            position: relative;
+            /*top: 400px;*/
+            text-align: center;
+        }
+        /*活动规则  按钮*/
+        #rules{
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+
+            position: relative;
+            /*top: 400px;*/
+            padding-left: 20px;
+            text-align: center;
+
+        }
+        /*来公众号  按钮*/
+        #photo{
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+
+            position: relative;
+            /*top: 450px;*/
+            text-align: center;
+
+        }
+        /*中奖名单  按钮*/
+        #list{
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+
+            position: relative;
+            /*top: 450px;*/
+            text-align: center;
+            padding-left: 20px;
+            top: -30px;
+        }
+        /*中奖名单  浮层*/
+        #divList,#close{
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            text-align: center;
+            outline: none;
+
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+        }
+        /*显示*/
+        #div_view{
+            position: absolute;
+            display: none;
+            width: 460px;
+            height: 400px;
+
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 10px;
+
+            /*flex: 1;*/
+            animation: fadeIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: fadeIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: fadeIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: fadeIn 1s 0s alternate;
+        }
+        #div1{
+            position: relative;
+            overflow: hidden;
+            display: none;
+            width: 120px;
+            height: 30px;
+            padding: 10px;
+        }
+        #label1{
+            text-align: left;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0.8rem;
+            /*height: 0.3rem;*/
+            font-size: 0.18rem;
+            display: inline-block;
+            padding-right: 4px;
+            line-height: 100%;
+            text-overflow: ellipsis;
+        }
+        #img_2{
+            /*width: 30px;*/
+            height: 0.2rem;
+            display: inline-block;
+            padding-left: 3px;
+        }
+        #div_circle{
+            top: -200px;
+            display: none;
+            margin: auto;
+
+            /*top: 50%;*/
+            /*background-color: red;*/
+        }
+        #div_audio{
+            /*width: 28px;*/
+            /*height: 28px;*/
+            right: 14px;
+            top: 14px;
+            /*opacity: 0.7;*/
+            position: absolute;
+            display: block;
+            z-index: 1000;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0)
+        }
+        #imgRules{
+            position: absolute;
+            display: none;
+        }
+        /*2个弹出浮层*/
+        #sh,#ss{
+            position: absolute;
+            overflow: hidden;
+            display: none;
+            animation: bounceIn 1s 0s alternate;
+            /* Firefox: */
+            -moz-animation: bounceIn 1s 0s alternate;
+            /* Safari 和 Chrome: */
+            -webkit-animation: bounceIn 1s 0s alternate;
+            /* Opera: */
+            -o-animation: bounceIn 1s 0s alternate;
+        }
+
+        /*弹窗里的控件*/
+        #close2,#coming,#name,#add,#tel{
+            position: absolute;
+            /*visibility: hidden;*/
+            overflow: hidden;
+            display: none;
+            padding: 5px;
+            background-color: transparent;
+            border-color: transparent;
+            border: none;
+            outline: none;
+            font-size: 0.18rem;
+        }
+
+    </style>
+    <script>
+        //  显示中奖名单
+        function showList(w,h){
+            hidePopupp();
+
+            var list = document.getElementById("divList");
+//            var pop_21 = document.getElementById("div2");
+            var width = document.body.scrollWidth;
+//            var myWidth = (width - w)/2 + "px";
+            pageLeft = (width - w)/2;
+            list.style.top = 80 + "px";
+            list.style.textAlign = "center";
+            list.style.width = w + "px";
+            list.style.height = h = "px";
+            list.style.display = "block";
+            list.style.marginLeft = pageLeft + "px";
+//            list.style.marginLeft = myWidth;
+//            pop_21.style.opacity = 0.3;
+
+            var close = document.getElementById("close");
+            close.style.display = "block";
+            close.style.right = "0px";
+            close.style.top = "10px";
+
+            var div_view = document.getElementById("div_view");
+            div_view.style.display = "block";
+            div_view.style.overflowY = "scroll";
+            div_view.style.left = pageLeft + 70 + "px";
+            div_view.style.top = 320 + "px";
+
+            var div_circle = document.getElementById("div_circle");
+            div_circle.style.display = "block";
+            div_circle.style.marginLeft = (pageLeft + w/2) + "px";
+
+            var arr = ["div2","div_pants","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+                if (pop_21) {
+                    pop_21.style.opacity = 0.3;
+                }
+            }
+            var gif4 = document.getElementById("gif4");
+            gif4.style.opacity = 0;
+
+
+            // DIV 网络请求
+            pageLoad();
+
+        }
+
+        //  隐藏中奖名单
+        function hiddenList(){
+            var list = document.getElementById("divList");
+            list.style.display = "none";
+
+            var pop_21 = document.getElementById("div2");
+            pop_21.style.opacity = 1;
+
+            var div_view = document.getElementById("div_view");
+            div_view.style.display = "none";
+
+            var div_circle = document.getElementById("div_circle");
+            div_circle.style.display = "none";
+
+            var close = document.getElementById("close");
+            close.style.display = "none";
+
+            var arr = ["div2","div_pants","div_12","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+                if (pop_21) {
+                    pop_21.style.opacity = 1;
+                }
+            }
+            var gif4 = document.getElementById("gif4");
+            gif4.style.opacity = 1;
+
+            div_view.innerHTML = "";
+
+            startID = 0;
+            pageTop = 0;
+        }
+
+        //  中奖名单 点击方法
+        function List(){
+            var list = document.getElementById("divList");
+            var pop_21 = document.getElementById("div2");
+
+            if(list.style.display == "block"){
+                hiddenList();
+            }else{
+                showList(578,691);
+            }
+        }
+
+        pageTop = 0;
+        startID = 0;
+
+        // 把数据 显示在 指定DIV 里
+        function autoCreate(arr){
+
+//            var width = document.body.scrollWidth;
+//            pageLeft = (width - 578)/2;
+
+            num = arr.length;
+            line = Math.ceil(num * 1.0 / 3);
+
+            count = 0;
+
+            var div_view = document.getElementById("div_view");
+//            div_view.style.display = "block";
+//            div_view.style.overflowY = "scroll";
+//            div_view.style.left = pageLeft + 70 + "px";
+//            div_view.style.top = 320 + "px";
+
+            for(j = 0;j<line;j++){
+                for(i = 0;i < 3;i ++){
+                    var div_xx = document.createElement("div");
+                    div_xx.innerHTML = document.getElementById("div1").innerHTML;
+
+                    div_xx.style.overflow = "hidden";
+                    div_xx.style.position = "absolute";
+                    div_xx.style.display = "flex";
+
+                    div_xx.firstElementChild.innerText = arr[count]["n"];
+                    div_xx.style.width = "1.2rem";
+                    div_xx.style.height = "0.35rem";
+
+                    if (arr[count]["m"] && 1 == arr[count]["m"])
+                    {
+                        div_xx.style.color = "#ce3d3d";
+                    } 
+
+                    h = j * 35 + pageTop;
+                    div_xx.style.top = h + "px";
+
+                    w = i * 160;
+                    div_xx.style.left = w +"px";
+
+                    div_view.appendChild(div_xx);
+
+                    startID = Math.max(Number(arr[count]["id"]) , startID);
+                    count++;
+                    if (num == count) {
+                        pageTop = h + 20;
+                        break;}
+                }
+            }
+        }
+
+        // 开始 网络请求
+        function pageLoad(){
+            var openId = 0;
+            if (localStorage.openId && 0 < localStorage.openId.length)
+            {
+                openId = localStorage.openId;
+            }
+            var list = document.getElementById("divList");
+
+            getWinnerList(openId,0,startID,198,dataBack);
+        }
+
+        // 解析数据
+        function dataBack(data) {
+
+            var div_circle = document.getElementById("div_circle");
+            div_circle.style.display = "none";
+            if(data["w"] != 0){
+                autoCreate(data["w"]);
+            }
+        }
+
+        //   显示 收货地址浮层 方法
+        function showPopupp(w,h){
+            hiddenList();
+
+            var popUP = document.getElementById("ss");
+            popUP.style.top = "220px";
+            popUP.style.left = "0px";
+            popUP.style.width = w + "px";
+            popUP.style.height = h + "px";
+            popUP.style.display = "block";
+
+            var popComing = document.getElementById("coming");
+            popComing.style.top = "400px";
+            popComing.style.right = "160px";
+            popComing.style.display = "block";
+
+            var popName = document.getElementById("name");
+            popName.style.top = "200px";
+            popName.style.right = "254px";
+            popName.style.width = "120px";
+            popName.style.display = "block";
+
+            var popTel = document.getElementById("tel");
+            popTel.style.top = "255px";
+            popTel.style.right = "254px";
+            popTel.style.width = "120px";
+            popTel.style.display = "block";
+
+            var popAddress= document.getElementById("add");
+            popAddress.style.top = "315px";
+            popAddress.style.right = "131px";
+            popAddress.style.width = "190px";
+            popAddress.style.display = "block";
+
+            var popClose = document.getElementById("close2");
+            popClose.style.top = "83px";
+            popClose.style.right = "157px";
+            popClose.style.display = "block";
+
+            var arr = ["div2","div_pants","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+                if (pop_21) {
+                    pop_21.style.opacity = 0.3;
+                }
+            }
+            var gif4 = document.getElementById("gif4");
+            gif4.style.opacity = 0;
+        }
+
+        //    隐藏 收货地址 浮层 方法
+        function hidePopupp(){
+            var popUp = document.getElementById("ss");
+            popUp.style.display = "none";
+            var arr = ["div2","div_pants","div_12","div_audio"];
+            for (id in arr)
+            {
+                var pop_21 = document.getElementById(arr[id]);
+                if (pop_21) {
+                    pop_21.style.opacity = 1;
+                }
+            }
+            var gif4 = document.getElementById("gif4");
+            gif4.style.opacity = 1;
+
+        }
+    </script>
+</head>
+<body>
+<div id="div0"><a id="home_icon" href="home.html"><img src="images/猜价格A_01.png" width="121" height="70"></a></div>
+<div id="div2">
+    <center>
+        <div id="img1"><img src="images/标题动画_03.png" width="460" height="203"></div>
+        <div id="img2"><img src="images/标题动画_06.png" width="640" height="159"></div>
+        <div id="img3"><img src="images/标题动画_09.png" width="468" height="109"></div>
+    </center>
+</div>
+<div id="div_pants">
+    <!--<center><div id="opening"><img id="gif" onload="loadGif(this)" src="images/开场动画1.gif"></div></center>-->
+    <div id="opening">
+        <div id="gif1"><img id="img_gif_1" gif="images/气泡1.gif" width="0" height="0"></div>
+        <div id="gif2"><img id="img_gif_2" gif="images/气泡2.gif" width="0" height="0"></div>
+        <div id="gif3"><img id="img_gif_3" gif="images/气泡3.gif" width="0" height="0"></div>
+        <center><div id="gif4"><img id="img_gif_4" gif="images/气泡4.gif" width="0" height="0"></div></center>
+    </div>
+    <div>
+        <center>
+            <img id="left" src="images/Left.png" width="150" height="104">
+            <img id="middle" src="images/Middle.png" width="140" height="90">
+            <img id="right" src="images/Right.png" width="152" height="102">
+        </center>
+    </div>
+</div>
+<div id="div3">
+    <center>
+        <a id="price" href="price.html"><img src="images/首页切图_03.png" width="260" height="67"></a>
+        <!--<a id="rules" href=# onclick="showPopupp(640,624)"><img src="images/猜价格A_17.png" width="260" height="67"></a>-->
+        <!--<a id="list" href=# onclick="showPopupp(640,624)"><img src="images/首页切图_12.png" width="260" height="67"></a>-->
+        <a id="rules" href="http://m.z.jd.com/project/details/42397.html"><img src="images/猜价格A_17.png?0115" width="260" height="67"></a>
+    </center>
+</div>
+<div id="div4">
+    <center>
+        <a id="photo" href="http://mp.weixin.qq.com/s?__biz=MzA5OTA0NzM5NQ==&mid=402143118&idx=1&sn=1b7e6728789b8e71fb6dc4ca7e977d44&scene=1&srcid=01153mWOGfnTtqEQxEfqoMP7&from=singlemessage&isappinstalled=0#wechat_redirect"><img src="images/首页切图_10.png" width="254" height="116"></a>
+        <a id="list" href=# onclick="List()"><img src="images/首页切图_12.png" width="260" height="67"></a>
+
+    </center>
+</div>
+<center>
+    <div id="divList">
+        <img src="images/中奖名单.png?0115" width="578" height="691">
+        <div id="close">
+            <a href=# onclick="hiddenList()"><img src="images/中奖名单关闭.png" width="61" height="57"></a>
+            <!--<img onclick="hiddenList()" src="images/中奖名单关闭.png" width="61" height="57">-->
+        </div>
+    </div>
+    <div id="div_view"></div>
+</center>
+<div>
+    <div id="div1">
+        <label id="label1"></label>
+        <img id="img_2" src="images/底裤_03.png" width="26" height="15">
+    </div>
+</div>
+<div id="div_circle" class="sk-fading-circle">
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+</div>
+
+<div class="audio_wrap"><img id="div_audio" onclick="musicPlay()" src="images/play.png" width="47" height="47"></div>
+
+<!--<img id="black" src="images/弹出BG.png" width="100%" height="100%">-->
+<!--<img id="content" onclick="hiddenRules()" src="images/活动规则_02.png" width="95%" height="72%">-->
+<!--<img id="tips" onclick="OUT()" src="images/tanchuc_11.png" width="9%" height="4%">-->
+<!--<img id="detail" src="images/tips弹出_05.png" width="34%" height="14%">-->
+
+<!--点击 收货地址 弹出浮层div-->
+<div id="ss">
+    <img id="address" src="images/address.png" width="640" height="624">
+    <div>
+        <a href="javaScript:commitExpressBtnOnClick()"><img id="coming" src="images/未点击.png" width="118" height="46"></a>
+        <input id="name" type="text">
+        <input id="tel" type="text">
+        <input id="add" type="text">
+    </div>
+    <div id="close2" style="display: inline-block">
+        <a href=# onclick="hidePopupp()"><img src="images/close.png" width="49" height="66"></a>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        main();
+    });
+
+    var left = document.getElementById("left");
+    var middle = document.getElementById("middle");
+    var right = document.getElementById("right");
+
+    var width = document.body.clientWidth;
+    gif4Left = (width - 549)/2 + "px";
+    gif2Left = (width - 230)/2 + "px";
+
+    function setWidthHeight(cont, width, height)
+    {
+        cont.attr('width', width);
+        cont.attr('height', height);
+    }
+
+    function gifPlayer(cont, width, height)
+    {
+        cont.load(function(){
+            cont.unbind('load');
+            cont.show();
+            setWidthHeight(cont, width, height);
+        });
+        cont.attr('src', cont.attr('gif'));
+    }
+
+    left.addEventListener("webkitAnimationStart",function(){
+        left.style.visibility = "visible";
+        var gif1 = document.getElementById("gif1");
+        gif1.style.top = "-250px";
+        gif1.style.left = "10px";
+        gifPlayer($('#img_gif_1'), 230, 263);
+    },false);
+
+    middle.addEventListener("webkitAnimationStart",function(){
+        middle.style.visibility = "visible";
+        var gif2 = document.getElementById("gif2");
+        gif2.style.top = "-280px";
+        gif2.style.left = gif2Left;
+        gifPlayer($('#img_gif_2'), 230, 263);
+    },false);
+
+    right.addEventListener("webkitAnimationStart",function(){
+        right.style.visibility = "visible";
+        var gif3 = document.getElementById("gif3");
+        gif3.style.top = "-250px";
+        gif3.style.right = "10px";
+        gifPlayer($('#img_gif_3'), 230, 273);
+    },false);
+
+    right.addEventListener("webkitAnimationEnd",function(){
+        var gif4 = document.getElementById("gif4");
+        gif4.style.top = "-600px";
+        gif4.style.left = gif4Left;
+        gifPlayer($('#img_gif_4'), 549, 604);
+    },false);
+
+    //        var audio = document.createElement("audio");
+    //        audio.src = "media/Lily Allen.mp3";
+    //        audio.loop = true;
+    //
+    //        audio.addEventListener("canplaythrough",function(){
+    //            audio.play();
+    //        },false);
+    //        $(".audio_wrap").append(audio);
+
+    var url = "media/Lily Allen.mp3" ;
+    window.audio = document.createElement("audio");
+    var source = document.createElement("source");
+    audio.id = "audio" ;
+    source.type = "audio/mpeg" ;
+    source.src = url ;
+    source.autoplay = "autoplay" ;
+    audio.addEventListener("ended",function(){
+        audio.play();
+    },false);
+    audio.appendChild(source);
+    audio.play();
+
+    function musicPlay(){
+        var div_audio = document.getElementById("div_audio");
+        if(audio.paused){
+            audio.play();
+            div_audio.src = "images/play.png";
+        }else{
+            audio.pause();
+            div_audio.src = "images/stop.png";
+        }
+    }
+
+</script>
+
+</body>
+</html>

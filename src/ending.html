@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>蜜豆内衣 首发第一弹</title>
+    <meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+
+    <script type="text/javascript" src="./js/jquery-1.7.1.min.js?v1.3_20151124"></script>
+    <script type="text/javascript" src="./js/main.js?v1.0_20151126"></script>
+    <script type="text/javascript" src="./js/adaptive.js?v1.0_20151126"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="js/WeChat.js"></script>
+    <script type="text/javascript">
+        checkAccess();
+        window['adaptive'].desinWidth = 640;
+        window['adaptive'].baseFont = 14;
+        window['adaptive'].init();
+    </script>
+    <link rel="stylesheet" href="css/dropload.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/midou.css">
+    <style type="text/css">
+        .main-info{
+            height: 0.88rem;
+            padding-bottom: 0.24rem;
+        }
+        .fund-info{
+            position: relative;
+            font-weight: normal;
+            padding: 0.2rem;
+            padding-right: 1.7rem;
+            padding-left: 0.23rem;
+            font-size: 0.32rem;
+            line-height: 1;
+        }
+        #img1{
+            position: relative;
+            top: -35px;
+
+        }
+        #imgCode{
+            position: relative;
+            top: -1px;
+
+        }
+        #div1{
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+        #label1{
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0.8rem;
+            font-size: 0.18rem;
+            /*background-color: aqua;*/
+            line-height: 100%;
+            text-overflow: ellipsis;
+        }
+        #img2{
+            width: 0.2rem;
+            display: inline-block;
+            /*background-color: #666666;*/
+
+        }
+        #div_view{
+            display: block;
+            position: absolute;
+            top: 445px;
+            width: 460px;
+            height: 400px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 10px;
+            /*flex: 1;*/
+            /*font-size: 0.13rem;*/
+        }
+        #div_circle{
+            display: none;
+            margin: auto;
+            top: 50%;
+        }
+        #div_audio{
+            /*width: 28px;*/
+            /*height: 28px;*/
+            right: 14px;
+            top: 14px;
+            /*opacity: 0.7;*/
+            position: absolute;
+            display: block;
+            z-index: 1000;
+            touch-action: pan-y;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0)
+        }
+    </style>
+    <script>
+        pageTop = 0;
+        startID = 0;
+        // 把数据 显示在 指定DIV 里
+        function autoCreate(arr){
+            num = arr.length;
+            line = Math.ceil(num * 1.0 / 3);
+            count = 0;
+            var div_view = document.getElementById("div_view");
+
+            for(j = 0;j<line;j++){
+                for(i = 0;i < 3;i ++){
+                    var div_xx = document.createElement("div");
+                    div_xx.innerHTML = document.getElementById("div1").innerHTML;
+
+                    div_xx.style.overflow = "hidden";
+                    div_xx.style.position = "absolute";
+                    div_xx.style.display = "flex";
+
+                    div_xx.firstElementChild.innerText = arr[count]["n"];
+                    div_xx.style.width = "1.2rem";
+                    div_xx.style.height = "0.35rem";
+
+                    if (arr[count]["m"] && 1 == arr[count]["m"])
+                    {
+                        div_xx.style.color = "#ce3d3d";
+                    }
+
+                    h = j * 35 + pageTop;
+                    div_xx.style.top = h + "px";
+
+                    w = i * 160;
+                    div_xx.style.left = w +"px";
+
+                    div_view.appendChild(div_xx);
+
+                    startID = Math.max(Number(arr[count]["id"]) , startID);
+                    count++;
+                    if (num == count) {
+                        pageTop = h + 20;
+                        break;}
+                }
+            }
+        }
+
+        // 开始 网络请求
+        function pageLoad(){
+            var openId = 0;
+            if (localStorage.openId && 0 < localStorage.openId.length) {
+                openId = localStorage.openId;
+            }
+
+            getWinnerList(openId,0,startID,198,dataBack);
+        }
+        // 解析数据
+        function dataBack(data) {
+            var div_circle = document.getElementById("div_circle");
+            div_circle.style.display = "none";
+
+            if(data["w"] != 0){
+                autoCreate(data["w"]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img src="images/猜价格A_01.png" width="121" height="70">
+        <center>
+            <img id="img1" src="images/活动结束主页_02.png" width="640" height="845">
+            <img id="imgCode" src="images/二维码_03.png" width="302" height="88">
+        </center>
+    </div>
+    <div>
+        <div id="div1">
+            <label id="label1"></label>
+
+            <img id="img2" src="images/底裤_03.png" width="26" height="15">
+        </div>
+    </div>
+    <div id="div_view">
+        <div id="div_circle" class="sk-fading-circle">
+            <div class="sk-circle1 sk-circle"></div>
+            <div class="sk-circle2 sk-circle"></div>
+            <div class="sk-circle3 sk-circle"></div>
+            <div class="sk-circle4 sk-circle"></div>
+            <div class="sk-circle5 sk-circle"></div>
+            <div class="sk-circle6 sk-circle"></div>
+            <div class="sk-circle7 sk-circle"></div>
+            <div class="sk-circle8 sk-circle"></div>
+            <div class="sk-circle9 sk-circle"></div>
+            <div class="sk-circle10 sk-circle"></div>
+            <div class="sk-circle11 sk-circle"></div>
+            <div class="sk-circle12 sk-circle"></div>
+        </div>
+    </div>
+    <div><img id="div_audio" onclick="musicPlay()" src="images/play.png" width="47" height="47"></div>
+    <script src="js/dropload.js"></script>
+    <script>
+        $(document).ready(function() {
+            var width = document.body.scrollWidth;
+            pageLeft = (width - 578)/2;
+
+            var div_view = document.getElementById("div_view");
+            div_view.style.display = "block";
+            div_view.style.overflowY = "scroll";
+            div_view.style.left = pageLeft + 70 + "px";
+            div_view.style.top = 445 + "px";
+
+            var div_circle = document.getElementById("div_circle");
+            div_circle.style.display = "block";
+
+            main();
+            pageLoad();
+        });
+
+        var audio = document.createElement("audio");
+        audio.src = "media/Lily Allen.mp3";
+        audio.loop = true;
+        //        audio.load();
+        audio.addEventListener("canplaythrough",function(){
+            audio.play();
+        },false);
+
+        function musicPlay(){
+
+            var div_audio = document.getElementById("div_audio");
+            if(audio.paused){
+//                alert("播放停止");
+                audio.play();
+                div_audio.src = "images/play.png";
+
+            }else{
+//                alert("正在播放");
+                audio.pause();
+                div_audio.src = "images/stop.png";
+            }
+        }
+    </script>
+</body>
+</html>
